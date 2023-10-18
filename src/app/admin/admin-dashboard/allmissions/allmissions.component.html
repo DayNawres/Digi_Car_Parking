@@ -1,0 +1,51 @@
+<div class="row mt-3  justify-content-center">
+    <div class="col-md-11 card" >
+        <div class="row " style="background-color: #8baef3;color: white;margin: 10px;padding: 10px;">
+            <div class="col-md-12 d-flex justify-content-center" >
+                <h2>All Validations of Missions</h2>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead class="thead">
+                      <tr>
+                        <th scope="col">Booking ID</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Vehicle Type</th>
+                        <th scope="col">Vehicle No</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Location ID</th>
+                        <th scope="col">Slot ID</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody >
+                      <tr *ngFor='let mission of AllMissions$'>
+                        <th scope="row">{{mission.missionid}}</th>
+                        <td>{{mission.email}}</td>
+                        <td>{{mission.vehicle_type}}</td>
+                        <td>{{mission.vehicle_no}}</td>
+                        <td>{{mission.date}}</td>
+                        <td>{{mission.time}}</td>
+                        <td>{{mission.duration}}</td>
+                        <td>{{mission.cost}}</td>
+                        <td>{{mission.locationid}}</td>
+                        <td>{{mission.slotid}}</td>
+                        <div *ngIf='mission.paid == 1'>
+                          <td class="text-success">Mission Ended</td>
+                        </div>
+                        <div *ngIf='mission.paid == 0'>
+                          <td class="text-danger">Mission ongoing</td>
+                        </div>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
